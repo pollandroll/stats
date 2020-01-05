@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_05_131342) do
+ActiveRecord::Schema.define(version: 2020_01_05_140249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -166,6 +166,7 @@ ActiveRecord::Schema.define(version: 2020_01_05_131342) do
     t.string "voit"
     t.string "wc"
     t.bigint "csp3_id"
+    t.integer "departement"
     t.index ["csp3_id"], name: "index_individuals_on_csp3_id"
   end
 
