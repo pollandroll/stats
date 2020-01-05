@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_05_093421) do
+ActiveRecord::Schema.define(version: 2020_01_05_131342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,12 @@ ActiveRecord::Schema.define(version: 2020_01_05_093421) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_blazer_queries_on_creator_id"
+  end
+
+  create_table "csp3s", force: :cascade do |t|
+    t.string "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "individuals", force: :cascade do |t|
@@ -159,6 +165,9 @@ ActiveRecord::Schema.define(version: 2020_01_05_093421) do
     t.string "typmr"
     t.string "voit"
     t.string "wc"
+    t.bigint "csp3_id"
+    t.index ["csp3_id"], name: "index_individuals_on_csp3_id"
   end
 
+  add_foreign_key "individuals", "csp3s"
 end
